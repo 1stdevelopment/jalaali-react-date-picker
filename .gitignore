@@ -34,7 +34,6 @@ debug.log
 build
 tsconfig.tsbuildinfo
 dist
-lib
 picker-env.d.ts
 .env
 storybook-docs
