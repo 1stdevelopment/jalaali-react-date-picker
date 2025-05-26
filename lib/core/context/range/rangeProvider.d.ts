@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { RangePickerProps } from "../../interfaces";
-import { Date, RangeDate, RangeValue } from "../../types/global.types";
+import { Date, RangeDate, RangeValue } from "../../types";
 import { RangePropsReducerType } from "../propsReducer";
 interface RangeInputProps {
     values: [string, string];

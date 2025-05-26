@@ -131,6 +131,7 @@ export interface RangePickerProps {
     loadingIndicator?: React.ReactNode;
     style?: React.CSSProperties;
     className?: string;
+    close?: () => void;
 }
 interface RangePanelProps extends Pick<RangePickerProps, "panelRender" | "headerRender" | "highlightDays" | "dayLabelRender" | "onModeChange" | "highlightWeekend" | "style" | "className" | "loading" | "loadingIndicator"> {
 }
@@ -184,6 +185,8 @@ export interface InputRangePickerProps extends InputRangePickerPickable {
     separator?: React.ReactNode;
     wrapperClassName?: string;
     wrapperStyle?: CSSProperties;
+    /** Whether close the popup after value change */
+    closeOnChange?: boolean;
 }
 export {};
 //# sourceMappingURL=range.interface.d.ts.map
