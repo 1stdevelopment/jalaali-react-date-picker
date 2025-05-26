@@ -165,7 +165,7 @@ const InputRangePicker = forwardRef<HTMLInputElement, InputRangePickerProps>(
 
               <Suffix
                 suffixIcon={suffixIcon}
-                clearable={clearIconVisible}
+                hasValue={Boolean(values?.[0])}
                 onClear={onClear}
                 inputOnClear={inputOnClear}
                 error={error}
