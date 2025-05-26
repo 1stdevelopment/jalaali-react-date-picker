@@ -31,7 +31,7 @@ const Suffix = ({
   }
 
   return (
-    <div className="icon-wrapper relative min-w-[35px] min-h-[20px]">
+    <div className="icon-wrapper">
       {hasValue && (
         <div className="icon-clear-wrapper">
           <Icon.Clear
@@ -43,9 +43,7 @@ const Suffix = ({
           />
         </div>
       )}
-      <div
-        className={`icon-calendar-wrapper ${hasValue ? "has-icon-clear" : ""}`}
-      >
+      <div className={`icon-calendar-wrapper ${hasValue && "has-icon-clear"}`}>
         <Icon.Calendar
           onClick={(e?: React.MouseEvent) => {
             e?.stopPropagation();
