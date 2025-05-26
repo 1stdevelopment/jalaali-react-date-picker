@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { dateTransformer, formatGenerator } from "../../../utils";
 import { RangePickerProps } from "../../interfaces";
-import { Date, RangeDate, RangeValue } from "../../types/global.types";
+import { Date, RangeDate, RangeValue } from "../../types";
 import { RangePropsReducerType } from "../propsReducer";
 import { useRangePropsReducer } from "../usePropsReducer";
 import { useRangeReducer } from "./useRangeReducer";
@@ -108,6 +108,7 @@ export const RangeProvider = ({ children, props }: RangeProviderProps) => {
     formatProp: propsState.format,
     valueProp: props.value,
     defaultValueProp: props.defaultValue,
+    close: props.close,
   });
 
   useEffect(() => {

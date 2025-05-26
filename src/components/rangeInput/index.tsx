@@ -33,6 +33,7 @@ const InputRangePicker = forwardRef<HTMLInputElement, InputRangePickerProps>(
       responsive = "auto",
       error,
       placeholder,
+      closeOnChange,
       presets = true,
       onClear: inputOnClear,
       ...rest
@@ -53,8 +54,6 @@ const InputRangePicker = forwardRef<HTMLInputElement, InputRangePickerProps>(
     }, [open]);
 
     const [animate, setAnimate] = useState(false);
-
-    const [clearIconVisible, setClearIconVisible] = useState(false);
 
     const toggleAnimate = (animate: boolean) => {
       setAnimate(animate);
@@ -91,6 +90,7 @@ const InputRangePicker = forwardRef<HTMLInputElement, InputRangePickerProps>(
           locale,
           onDayChange,
           defaultValue,
+          close: closeOnChange ? onClose : undefined,
         }}
       >
         {({
@@ -125,7 +125,7 @@ const InputRangePicker = forwardRef<HTMLInputElement, InputRangePickerProps>(
           >
             <div
               className={classNames(
-                "range-input-wrapper",
+                "range-input-wrapper group",
                 error && "picker-input-error",
                 disabled && "picker-input-disabled",
                 isRtl && "rtl",
@@ -134,8 +134,6 @@ const InputRangePicker = forwardRef<HTMLInputElement, InputRangePickerProps>(
               ref={inputRef}
               style={wrapperStyle}
               onClick={onOpen}
-              onMouseEnter={() => values[0] && setClearIconVisible(true)}
-              onMouseLeave={() => setClearIconVisible(false)}
             >
               {prefixIcon && prefixIcon}
               <Input

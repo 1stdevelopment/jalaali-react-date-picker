@@ -18,7 +18,6 @@ const Suffix = ({
   error,
   toggle,
 }: SuffixProps) => {
-
   if (suffixIcon || suffixIcon === null) {
     return <>{suffixIcon}</>;
   }
@@ -33,8 +32,8 @@ const Suffix = ({
 
   return (
     <div className="icon-wrapper relative min-w-[35px] min-h-[20px]">
-      {hasValue &&
-        <div className="flex items-center justify-center group-hover:opacity-100 opacity-0 absolute inset-0 m-auto hover:z-10">
+      {hasValue && (
+        <div className="icon-clear-wrapper">
           <Icon.Clear
             onClick={(e) => {
               e?.stopPropagation();
@@ -43,8 +42,10 @@ const Suffix = ({
             }}
           />
         </div>
-      }
-      <div className={`flex items-center justify-center ${hasValue ? "opacity-100 group-hover:opacity-0 absolute inset-0 m-auto hover:-z-10" : " transition-opacity duration-150"}`}>
+      )}
+      <div
+        className={`icon-calendar-wrapper ${hasValue ? "has-icon-clear" : ""}`}
+      >
         <Icon.Calendar
           onClick={(e?: React.MouseEvent) => {
             e?.stopPropagation();
