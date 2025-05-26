@@ -1,5 +1,12 @@
 import classNames from "classnames";
-import React, { Fragment, memo, ReactNode, useMemo, useRef } from "react";
+import React, {
+  Fragment,
+  memo,
+  ReactNode,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useConfig, useShouldResponsive } from "../../core/hooks";
 import { useClickOutside } from "../../core/hooks/useClickoutside";
 import { Portal } from "../portal";
@@ -39,6 +46,7 @@ const Popup = memo(
     isJalaali,
   }: PopupProps) => {
     const refPopup = useRef<HTMLDivElement>(null);
+    const [_, setUpdate] = useState(new Date());
 
     const shouldResponsive = useShouldResponsive(responsive);
 
@@ -59,6 +67,9 @@ const Popup = memo(
       if (e.animationName === "close") {
         e.preventDefault();
         toggleAnimate(false);
+      } else {
+        setUpdate(new Date());
+        toggleAnimate(true);
       }
     };
 
