@@ -1,5 +1,5 @@
 import { RangePickerProps } from "../../interfaces";
-import { Date, Locale, RangeDate, RangeValue } from "../../types/global.types";
+import { Date, Locale, RangeDate, RangeValue } from "../../types";
 interface RangeDateReducerType {
     formatProp?: string;
     onChangeProp?: RangePickerProps["onChange"];
@@ -9,6 +9,7 @@ interface RangeDateReducerType {
     onMonthChangeProp?: RangePickerProps["onMonthChange"];
     onYearChangeProp?: RangePickerProps["onYearChange"];
     locale: Locale;
+    close?: () => void;
 }
 type Offsets = [number, number];
 type RangeInput = [string, string];
@@ -16,7 +17,7 @@ type FromTo = {
     from: Date;
     to: Date;
 };
-export declare const useRangeReducer: ({ formatProp, valueProp, defaultValueProp, onChangeProp, onDayChangeProp, onMonthChangeProp, onYearChangeProp, locale, }: RangeDateReducerType) => {
+export declare const useRangeReducer: ({ formatProp, valueProp, defaultValueProp, onChangeProp, onDayChangeProp, onMonthChangeProp, onYearChangeProp, locale, close, }: RangeDateReducerType) => {
     rangeState: RangeDate;
     cacheRangeDate: RangeDate;
     onRangeDateChange: (payload: RangeDate | null) => void;
