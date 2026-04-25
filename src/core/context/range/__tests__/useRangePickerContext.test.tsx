@@ -66,7 +66,10 @@ describe("useRangeYears", () => {
       wrapper,
     });
     act(() =>
-      result.current.onRangeDaychange({ day: 4, month: 11, year: 1401 }, true),
+      result.current.onRangeDaychange(
+        { minute: 0, hour: 0, day: 4, month: 11, year: 1401 },
+        true,
+      ),
     );
 
     expect(result.current.rangeState.startDate.day).toBe(4);
@@ -74,7 +77,7 @@ describe("useRangeYears", () => {
     expect(result.current.rangeState.startDate.year).toBe(1401);
     act(() =>
       result.current.onRangeDaychange(
-        { day: 10, month: 11, year: 1401 },
+        { minute: 0, hour: 0, day: 10, month: 11, year: 1401 },
         false,
       ),
     );
@@ -88,11 +91,17 @@ describe("useRangeYears", () => {
       wrapper,
     });
     act(() =>
-      result.current.onRangeDaychange({ day: 4, month: 11, year: 1401 }, true),
+      result.current.onRangeDaychange(
+        { minute: 0, hour: 0, day: 4, month: 11, year: 1401 },
+        true,
+      ),
     );
 
     act(() =>
-      result.current.onRangeDaychange({ day: 3, month: 11, year: 1401 }, false),
+      result.current.onRangeDaychange(
+        { minute: 0, hour: 0, day: 3, month: 11, year: 1401 },
+        false,
+      ),
     );
 
     expect(result.current.rangeState.startDate.day).toBe(3);

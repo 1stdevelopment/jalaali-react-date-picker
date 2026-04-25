@@ -24,7 +24,9 @@ interface ContextType extends DatePropsReducerType {
   cacheDate?: Date;
   offset: number;
   onClear: () => void;
-  onDateChange: (payload: Date) => void;
+  onDateChange: (payload: Date, closePicker?: boolean) => void;
+  onMinuteChange: (payload: Date) => void;
+  onHourChange: (payload: Date) => void;
   onDaychange: (payload: Date) => void;
   onMonthchange: (payload: Date) => void;
   onYearchange: (payload: Date) => void;
@@ -38,6 +40,8 @@ interface ContextType extends DatePropsReducerType {
 
 export const DatePickerContext = createContext<ContextType>({
   state: {
+    minute: 0,
+    hour: 0,
     day: 0,
     month: 0,
     year: 0,
@@ -47,6 +51,8 @@ export const DatePickerContext = createContext<ContextType>({
   locale: "fa",
   changePlaceholder: () => null,
   onDateChange: () => null,
+  onMinuteChange: () => null,
+  onHourChange: () => null,
   onDaychange: () => null,
   onMonthchange: () => null,
   onYearchange: () => null,
@@ -71,6 +77,8 @@ export const DateProvider = ({ children, props }: DateProviderProps) => {
   const {
     state,
     onDaychange,
+    onMinuteChange,
+    onHourChange,
     onDateChange,
     onMonthchange,
     onYearchange,
@@ -103,6 +111,8 @@ export const DateProvider = ({ children, props }: DateProviderProps) => {
       setLocale(props.locale);
 
       onDaychange({
+        minute: 0,
+        hour: 0,
         day: 0,
         year: getCurrentYear(isJalaali),
         month: Number(moment().format(isJalaali ? "jM" : "M")),
@@ -132,6 +142,8 @@ export const DateProvider = ({ children, props }: DateProviderProps) => {
       value={{
         state,
         onDateChange,
+        onMinuteChange,
+        onHourChange,
         onDaychange,
         onMonthchange,
         onYearchange,

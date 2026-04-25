@@ -39,6 +39,8 @@ describe("useRangeDays from", () => {
     if (!item) return;
     const res = dateTransformer(
       {
+        minute: item.minute,
+        hour: item.hour,
         day: item.day,
         month: item.month,
         year: item.year,

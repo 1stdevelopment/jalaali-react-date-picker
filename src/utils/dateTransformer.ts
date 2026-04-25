@@ -6,7 +6,7 @@ export const dateTransformer = (
   data: Date,
   isJalaali: boolean,
 ): moment.Moment => {
-  const { day, month, year } = data;
+  const { minute, hour, day, month, year } = data;
   if (day < 1 || month < 1 || year < 1) {
     throw new Error("entered inputs are not valid");
   }
@@ -14,6 +14,9 @@ export const dateTransformer = (
     `${year}-${month}-${day}`,
     isJalaali ? "jYYYY-jM-jDD" : "YYYY-M-DD",
   );
+
+  result.hour(hour);
+  result.minute(minute);
 
   if (!result.isValid()) {
     throw new Error("entered inputs are not valid");

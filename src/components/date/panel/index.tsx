@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import moment from "moment-jalaali";
 import { ForwardedRef, forwardRef, Ref } from "react";
+import { Time } from "src/components/time";
 import {
   NavigationIcon,
   PickerProps as Props,
@@ -30,6 +31,7 @@ const Panel = (
     dayLabelRender,
     onModeChange,
     toggle,
+    includeTime,
     navigationIcons,
     highlightWeekend,
     style,
@@ -66,6 +68,8 @@ const Panel = (
             presets,
           }}
         />
+        {includeTime && <Time />}
+
         <Footer toggle={toggle} footerRender={footerRender} />
       </Loading>
     </div>

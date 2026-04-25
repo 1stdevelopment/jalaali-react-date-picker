@@ -922,6 +922,7 @@
     opacity: 0;
     transform: scale(0.95, 0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1, 1);
@@ -933,6 +934,7 @@
     opacity: 1;
     transform: scale(1, 1);
   }
+
   to {
     transform: scale(0.95, 0.95);
     opacity: 0;
@@ -1235,4 +1237,84 @@
 .fallback {
   width: 100%;
   height: 100%;
+}
+
+.time-container {
+  width: 100%;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  border-top: 1px solid var(--border-fade);
+  background-color: var(--background);
+}
+
+.time-selector-wrapper {
+  position: relative;
+  overflow: visible;
+  width: 40px;
+}
+
+.time-selector {
+  width: 40px;
+  height: 25px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--background);
+  color: var(--text);
+  font-family: IRANSansRegular;
+  text-align: center;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.time-selector:hover {
+  border-color: var(--primary);
+}
+
+.time-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 125px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--background);
+  z-index: 99999;
+}
+
+.time-option {
+  width: 100%;
+  height: 25px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: IRANSansRegular;
+  cursor: pointer;
+}
+
+.time-option:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.time-option.active {
+  background: var(--primary);
+  color: white;
+}
+
+.time-dropdown::-webkit-scrollbar {
+  width: 3px;
+}
+
+.time-dropdown::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+.time-dropdown::-webkit-scrollbar-thumb {
+  background: var(--primary);
 }

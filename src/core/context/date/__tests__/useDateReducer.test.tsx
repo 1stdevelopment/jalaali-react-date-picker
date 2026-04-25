@@ -19,9 +19,19 @@ describe("onDaychange", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onDaychange({ day: 5, month: 7, year: 1401 }));
+    act(() =>
+      result.current.onDaychange({
+        minute: 0,
+        hour: 0,
+        day: 5,
+        month: 7,
+        year: 1401,
+      }),
+    );
 
     expect(result.current.cacheDate).toStrictEqual({
+      min: 0,
+      hour: 0,
       day: 5,
       month: 7,
       year: 1401,
@@ -34,8 +44,18 @@ describe("onDecreaseMonth", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onDecreaseMonth({ day: 0, month: 8, year: 1401 }));
+    act(() =>
+      result.current.onDecreaseMonth({
+        minute: 0,
+        hour: 0,
+        day: 0,
+        month: 8,
+        year: 1401,
+      }),
+    );
     expect(result.current.state).toStrictEqual({
+      minute: 0,
+      hour: 0,
       day: 0,
       month: 7,
       year: 1401,
@@ -48,8 +68,18 @@ describe("onIncreaseMonth", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onIncreaseMonth({ day: 0, month: 4, year: 1401 })),
+    act(() =>
+      result.current.onIncreaseMonth({
+        minute: 0,
+        hour: 0,
+        day: 0,
+        month: 4,
+        year: 1401,
+      }),
+    ),
       expect(result.current.state).toStrictEqual({
+        minute: 0,
+        hour: 0,
         day: 0,
         month: 5,
         year: 1401,
@@ -61,9 +91,19 @@ describe("onYearchange", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onYearchange({ day: 0, month: 8, year: 1401 }));
+    act(() =>
+      result.current.onYearchange({
+        minute: 0,
+        hour: 0,
+        day: 0,
+        month: 8,
+        year: 1401,
+      }),
+    );
 
     expect(result.current.state).toStrictEqual({
+      minute: 0,
+      hour: 0,
       day: 0,
       month: 8,
       year: 1401,
@@ -75,9 +115,19 @@ describe("onMonthchange", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onMonthchange({ day: 0, month: 8, year: 1403 }));
+    act(() =>
+      result.current.onMonthchange({
+        minute: 0,
+        hour: 0,
+        day: 0,
+        month: 8,
+        year: 1403,
+      }),
+    );
 
     expect(result.current.state).toStrictEqual({
+      minute: 0,
+      hour: 0,
       day: 0,
       month: 8,
       year: 1403,
@@ -89,8 +139,18 @@ describe("onIncreaseYear", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onIncreaseYear({ day: 1, month: 9, year: 1401 }));
+    act(() =>
+      result.current.onIncreaseYear({
+        minute: 0,
+        hour: 0,
+        day: 1,
+        month: 9,
+        year: 1401,
+      }),
+    );
     expect(result.current.state).toStrictEqual({
+      minute: 0,
+      hour: 0,
       day: 0,
       month: 9,
       year: 1402,
@@ -102,8 +162,18 @@ describe("onDecreaseYear", () => {
     const { result } = renderHook(() => useDateReducer({ locale: "fa" }), {
       wrapper,
     });
-    act(() => result.current.onDecreaseYear({ day: 1, month: 4, year: 1401 }));
+    act(() =>
+      result.current.onDecreaseYear({
+        minute: 0,
+        hour: 0,
+        day: 1,
+        month: 4,
+        year: 1401,
+      }),
+    );
     expect(result.current.state).toStrictEqual({
+      minute: 0,
+      hour: 0,
       day: 0,
       month: 4,
       year: 1400,

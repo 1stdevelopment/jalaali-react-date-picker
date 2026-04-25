@@ -10,6 +10,8 @@ export const useRangeDays = (type: "from" | "to") => {
   const { days } = useMemo(
     () =>
       generateDays(
+        from.minute,
+        from.hour,
         from.month,
         from.year,
         isJalaali,
@@ -21,6 +23,8 @@ export const useRangeDays = (type: "from" | "to") => {
   const { days: nextMonthDays } = useMemo(
     () =>
       generateDays(
+        to.minute,
+        to.hour,
         to.month,
         to.year,
         isJalaali,

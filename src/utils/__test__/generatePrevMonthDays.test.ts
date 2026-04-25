@@ -6,6 +6,8 @@ const generateDaysCallback = () => {
   const fn = jest.fn(generatePrevMonthDays);
   expect(
     fn({
+      minute: 0,
+      hour: 0,
       currentMonth: 11,
       year: 1401,
       currentMonthWeekDay: 0,
@@ -14,6 +16,8 @@ const generateDaysCallback = () => {
   ).toBe(0);
   expect(
     fn({
+      minute: 0,
+      hour: 0,
       currentMonth: 12,
       year: 1401,
       currentMonthWeekDay: 2,
@@ -22,6 +26,8 @@ const generateDaysCallback = () => {
   ).toBe(2);
   expect(
     fn({
+      minute: 0,
+      hour: 0,
       currentMonth: 1,
       year: 1402,
       currentMonthWeekDay: 3,

@@ -24,7 +24,7 @@ const RangeDays = ({}: RangeDaysProps) => {
   const { days } = useRangeDays(type);
 
   const onSelect = useCallback(
-    ({ day, month, year }: DateMetadata) => {
+    ({ minute, hour, day, month, year }: DateMetadata) => {
       const isStartDate =
         !cacheRangeDate?.startDate.day ||
         (!!cacheRangeDate.startDate && !!cacheRangeDate.endDate);
@@ -32,7 +32,7 @@ const RangeDays = ({}: RangeDaysProps) => {
       if (!isStartDate) {
         const selectedRange = getRange(
           dateTransformer(cacheRangeDate.startDate, isJalaali),
-          dateTransformer({ day, month, year }, isJalaali),
+          dateTransformer({ minute, hour, day, month, year }, isJalaali),
         );
 
         const firstDisabledIndex = selectedRange.findIndex((item) =>
@@ -45,7 +45,7 @@ const RangeDays = ({}: RangeDaysProps) => {
           );
         }
       }
-      onRangeDaychange({ day, month, year }, isStartDate);
+      onRangeDaychange({ minute, hour, day, month, year }, isStartDate);
       if (isStartDate) {
         to.month !== month && changeFrom({ day, month, year });
       } else {

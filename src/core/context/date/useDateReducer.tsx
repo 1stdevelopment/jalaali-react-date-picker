@@ -37,6 +37,8 @@ const getDefaultValue = (
   const _value = value || moment();
 
   return {
+    minute: 0,
+    hour: 0,
     day: 0,
     year: getDateYear(_value, isJalaali),
     month: getDateMonth(_value, isJalaali),
@@ -53,7 +55,14 @@ function formatter(value: Moment, isJalaali: boolean, format?: string): string {
 
 /** Check whether the given date object is valid or not. */
 function isDateObjectValid(date: Date): boolean {
-  return date && date.day !== 0;
+  return (
+    date &&
+    date.day !== 0 &&
+    date.minute >= 0 &&
+    date.minute < 60 &&
+    date.hour >= 0 &&
+    date.hour < 24
+  );
 }
 
 export const useDateReducer = ({
@@ -172,6 +181,30 @@ export const useDateReducer = ({
     },
     [isJalaali, onChangeProp, formattedValue, state, close],
   );
+
+  const onMinuteChange = useCallback((payload: Date) => {
+    dispatch({ type: DateActionKind.MINUTE, payload });
+
+    setCacheDate(payload);
+
+    if (isDateObjectValid(payload)) {
+      // onMinuteChangeProp?.(payload.minute);
+
+      setInputValue("");
+    }
+  }, []);
+
+  const onHourChange = useCallback((payload: Date) => {
+    dispatch({ type: DateActionKind.HOUR, payload });
+
+    setCacheDate(payload);
+
+    if (isDateObjectValid(payload)) {
+      // onHourChangeProp?.(payload.hour);
+
+      setInputValue("");
+    }
+  }, []);
 
   /**
    * This function is a callback function that updates the selected date day and
@@ -334,6 +367,8 @@ export const useDateReducer = ({
     state,
     cacheDate,
     onDateChange,
+    onMinuteChange,
+    onHourChange,
     onDaychange,
     onMonthchange,
     onYearchange,

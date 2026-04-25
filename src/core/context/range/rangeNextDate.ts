@@ -5,6 +5,8 @@ function nextDate(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       day: date.day,
       month: date.month,
       year: date.year,
@@ -19,6 +21,8 @@ function nextMonth(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       month: date.month,
       day: 0,
     };
@@ -31,6 +35,8 @@ function nextMonthDecrease(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       month: date.month - 1 === 0 ? 12 : date.month - 1,
       year: date.year,
       day: 0,
@@ -44,6 +50,8 @@ function nextMonthIncrease(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       month: date.month + 1 === 13 ? 1 : date.month + 1,
       day: 0,
       year: date.year,
@@ -57,6 +65,8 @@ function nextYear(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       year: date.year,
     };
   }
@@ -68,6 +78,8 @@ function nextYearDecrease(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       year: date.year - 1,
     };
   }
@@ -79,6 +91,8 @@ function nextYearIncrease(date: Date | null, state: RangeDate): Date | null {
   if (date) {
     return {
       ...(state.endDate ? state.endDate : nextDefault),
+      minute: date.minute,
+      hour: date.hour,
       year: date.year + 1,
     };
   }

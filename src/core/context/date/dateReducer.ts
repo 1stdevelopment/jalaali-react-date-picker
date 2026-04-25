@@ -1,6 +1,8 @@
 import { Date } from "../../types/global.types";
 
 export enum DateActionKind {
+  MINUTE = "MINUTE",
+  HOUR = "HOUR",
   DATE = "DATE",
   DAY = "DAY",
   MONTH = "MONTH",
@@ -20,6 +22,20 @@ export interface DateAction {
 export function reducer(state: Date, action: DateAction): Date {
   const { type, payload } = action;
   switch (type) {
+    /** When date changes */
+    case DateActionKind.MINUTE:
+      return {
+        ...state,
+        minute: payload.minute,
+      };
+
+    /** When date changes */
+    case DateActionKind.HOUR:
+      return {
+        ...state,
+        hour: payload.hour,
+      };
+
     /** When date changes */
     case DateActionKind.DATE:
       return {

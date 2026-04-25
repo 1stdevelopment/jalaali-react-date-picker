@@ -43,6 +43,8 @@ export interface Date {
   year: number;
   month: number;
   day: number;
+  hour: number;
+  minute: number;
 }
 
 export type RangeDate = {

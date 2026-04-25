@@ -8,12 +8,21 @@ export const useDays = () => {
   const { days } = useMemo(
     () =>
       generateDays(
+        state.minute,
+        state.hour,
         state.month,
         state.year,
         isJalaali,
         disabledDates || (() => false),
       ),
-    [disabledDates, isJalaali, state.month, state.year],
+    [
+      disabledDates,
+      isJalaali,
+      state.month,
+      state.year,
+      state.minute,
+      state.hour,
+    ],
   );
 
   return {

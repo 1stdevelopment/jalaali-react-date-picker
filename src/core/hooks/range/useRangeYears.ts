@@ -23,6 +23,8 @@ export const useRangeYears = ({
   const fromYears = useMemo(() => {
     return fromYearObject.years.map((year) => {
       const { days } = generateDays(
+        from.minute,
+        from.hour,
         from.month,
         year.id,
         locale === "fa",
@@ -37,11 +39,14 @@ export const useRangeYears = ({
       }
       return year;
     });
-  }, [disabledDates, locale, from, fromYearObject.years]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [disabledDates, locale, from.month, fromYearObject.years]);
 
   const toYears = useMemo(() => {
     return toYearObject.years.map((year) => {
       const { days } = generateDays(
+        to.minute,
+        to.hour,
         to.month,
         year.id,
         locale === "fa",
@@ -56,6 +61,7 @@ export const useRangeYears = ({
       }
       return year;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toYearObject.years, to.month, locale, disabledDates]);
   return {
     years: type === "from" ? fromYears : toYears,

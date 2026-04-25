@@ -5,12 +5,16 @@ import {
 } from "./getDaysOfMonth";
 
 export const generateNextMonthDays = ({
+  minute,
+  hour,
   currentMonthWeekDay,
   currentMonth,
   year,
   isJalaali = true,
   disabledDates,
 }: {
+  minute: number;
+  hour: number;
   currentMonthWeekDay: number;
   currentMonth: number;
   year: number;
@@ -25,12 +29,16 @@ export const generateNextMonthDays = ({
 
   if (isJalaali) {
     nextMonthDays = getDaysOfJalaaliMonth(
+      minute,
+      hour,
       currentMonth === 12 ? 1 : currentMonth + 1,
       currentMonth === 12 ? year + 1 : year,
       disabledDates,
     );
   } else {
     nextMonthDays = getDaysOfGregorianMonth(
+      minute,
+      hour,
       currentMonth === 12 ? 1 : currentMonth + 1,
       currentMonth === 12 ? year + 1 : year,
       disabledDates,

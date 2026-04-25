@@ -1,5 +1,6 @@
 import moment from "moment-jalaali";
 import { useCallback, useMemo } from "react";
+import { Date } from "src/core/types";
 import { dateTransformer } from "../../../utils";
 import { localizedDayLabels, localizedMonth } from "../../constants";
 import { useDatePickerContext } from "../../context/date/dateProvider";
@@ -26,13 +27,17 @@ export const useDatepicker = () => {
   }, [locale]);
 
   const goToToday = useCallback(() => {
-    const today = isJalaali
+    const today: Date = isJalaali
       ? {
+          minute: state.minute,
+          hour: state.hour,
           day: moment().jDate(),
           year: moment().jYear(),
           month: Number(moment().format("jM")),
         }
       : {
+          minute: state.minute,
+          hour: state.hour,
           day: moment().date(),
           year: moment().year(),
           month: Number(moment().format("M")),
@@ -55,6 +60,8 @@ export const useDatepicker = () => {
     onDateChange,
     onMonthchange,
     onYearchange,
+    state.hour,
+    state.minute,
   ]);
 
   return {

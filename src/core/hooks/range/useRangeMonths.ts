@@ -11,6 +11,8 @@ export const useRangeMonths = (type: "from" | "to") => {
   const fromMonths = useMemo(() => {
     return months.map((month) => {
       const { days } = generateDays(
+        from.minute,
+        from.hour,
         month.id,
         from.year,
         locale === "fa",
@@ -25,10 +27,14 @@ export const useRangeMonths = (type: "from" | "to") => {
       }
       return month;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disabledDates, from.year, locale, months]);
+
   const toMonths = useMemo(() => {
     return months.map((month) => {
       const { days } = generateDays(
+        to.minute,
+        to.hour,
         month.id,
         to.year,
         locale === "fa",
@@ -44,6 +50,7 @@ export const useRangeMonths = (type: "from" | "to") => {
       }
       return month;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disabledDates, from.month, from.year, locale, months, to.year]);
 
   return {
