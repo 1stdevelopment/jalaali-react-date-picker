@@ -102,6 +102,7 @@ export const DateProvider = ({ children, props }: DateProviderProps) => {
     valueProp: props.value,
     defaultValueProp: props.defaultValue,
     close: props.close,
+    includeTime: props.includeTime,
   });
 
   useEffect(() => {
@@ -129,7 +130,7 @@ export const DateProvider = ({ children, props }: DateProviderProps) => {
         ? typeof props.format === "function"
           ? props.format(dateTransformer(cacheDate, props.locale === "fa"))
           : props.format
-        : formatGenerator(locale === "fa");
+        : formatGenerator(locale === "fa", props.includeTime);
 
       setFormat(format);
     }
