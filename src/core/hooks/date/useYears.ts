@@ -12,6 +12,8 @@ export const useYears = (offset: number) => {
   const res = useMemo(() => {
     return years.map((year) => {
       const { days } = generateDays(
+        state.minute,
+        state.hour,
         state.month,
         year.id,
         locale === "fa",
@@ -26,6 +28,7 @@ export const useYears = (offset: number) => {
       }
       return year;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disabledDates, locale, state.month, years]);
 
   return {

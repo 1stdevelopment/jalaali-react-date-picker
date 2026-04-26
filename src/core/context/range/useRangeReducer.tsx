@@ -13,7 +13,7 @@ import {
   rangeTransformer,
 } from "../../../utils";
 import { RangePickerProps } from "../../interfaces";
-import { Date, Locale, RangeDate, RangeValue } from "../../types";
+import { Date, Locale, RangeDate, RangeValue } from "../../types/global.types";
 import { RangeActionKind, rangeReducer } from "./rangeReducer";
 
 interface RangeDateReducerType {
@@ -41,6 +41,8 @@ type FromTo = {
 const getDefaultValue = (value?: RangeValue, isJalaali = true): RangeDate => {
   let defaultDate = {
     startDate: {
+      minute: 0,
+      hour: 0,
       day: 0,
       year: getCurrentYear(isJalaali),
       month: getCurrentMonth(isJalaali),
@@ -51,6 +53,8 @@ const getDefaultValue = (value?: RangeValue, isJalaali = true): RangeDate => {
   if (value && value.length) {
     defaultDate = {
       startDate: {
+        minute: 0,
+        hour: 0,
         day: 0,
         year: getDateYear(value[0], isJalaali),
         month: getDateMonth(value[0], isJalaali),
@@ -81,11 +85,15 @@ export const useRangeReducer = ({
     const currentYear = getCurrentYear(isJalaali);
     const currentMonth = getCurrentMonth(isJalaali);
     const from = {
+      minute: 0,
+      hour: 0,
       day: 0,
       year: currentYear,
       month: currentMonth,
     };
     const to = {
+      minute: 0,
+      hour: 0,
       day: 0,
       year: currentMonth === 12 ? currentYear + 1 : currentYear,
       month: currentMonth === 12 ? 1 : currentMonth + 1,
@@ -163,6 +171,8 @@ export const useRangeReducer = ({
     }
     if (valueProp && valueProp.length) {
       const startDate = {
+        minute: 0,
+        hour: 0,
         day: getDateDay(valueProp[0], isJalaali),
         year: getDateYear(valueProp[0], isJalaali),
         month: getDateMonth(valueProp[0], isJalaali),
@@ -172,6 +182,8 @@ export const useRangeReducer = ({
 
       if (valueProp?.[1] !== null) {
         endDate = {
+          minute: 0,
+          hour: 0,
           day: getDateDay(valueProp[1], isJalaali),
           year: getDateYear(valueProp[1], isJalaali),
           month: getDateMonth(valueProp[1], isJalaali),
@@ -200,6 +212,8 @@ export const useRangeReducer = ({
   useEffect(() => {
     if (defaultValueProp && !valueProp) {
       const startDate = {
+        minute: 0,
+        hour: 0,
         day: getDateDay(defaultValueProp[0], isJalaali),
         year: getDateYear(defaultValueProp[0], isJalaali),
         month: getDateMonth(defaultValueProp[0], isJalaali),
@@ -209,6 +223,8 @@ export const useRangeReducer = ({
 
       if (defaultValueProp?.[1] !== null) {
         endDate = {
+          minute: 0,
+          hour: 0,
           day: getDateDay(defaultValueProp[1], isJalaali),
           year: getDateYear(defaultValueProp[1], isJalaali),
           month: getDateMonth(defaultValueProp[1], isJalaali),

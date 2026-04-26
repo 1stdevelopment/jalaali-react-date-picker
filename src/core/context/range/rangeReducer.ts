@@ -34,6 +34,8 @@ export function rangeReducer(state: RangeDate, action: RangeAction): RangeDate {
     case RangeActionKind.DATE:
       return {
         startDate: {
+          minute: startDate.minute,
+          hour: startDate.minute,
           day: startDate.day,
           month: startDate.month,
           year: startDate.year,

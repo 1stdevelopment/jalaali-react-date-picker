@@ -10,6 +10,7 @@ import React, {
 import { useConfig, useShouldResponsive } from "../../core/hooks";
 import { useClickOutside } from "../../core/hooks/useClickoutside";
 import { Portal } from "../portal";
+import { HOUR_PICKER, MINUTE_PICKER } from "../time/components";
 
 export type Placement = "bottom" | "top" | "right" | "left";
 
@@ -53,6 +54,8 @@ const Popup = memo(
     useClickOutside<HTMLDivElement>(close, [
       refPopup.current,
       inputRef.current,
+      document.getElementById(MINUTE_PICKER),
+      document.getElementById(HOUR_PICKER),
     ]);
 
     const config = useConfig({

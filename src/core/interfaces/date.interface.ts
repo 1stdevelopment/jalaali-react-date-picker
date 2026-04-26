@@ -182,6 +182,9 @@ export interface DatePickerProps {
 
   /** Callback to close popup */
   close?: () => void;
+
+  /** Whether to display the time picker */
+  includeTime?: boolean;
 }
 
 interface PanelProps
@@ -198,6 +201,7 @@ interface PanelProps
     | "loading"
     | "loadingIndicator"
     | "onModeChange"
+    | "includeTime"
   > {}
 
 export interface PickerProps extends PanelProps {}

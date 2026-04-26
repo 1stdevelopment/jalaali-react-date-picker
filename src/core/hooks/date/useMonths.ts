@@ -11,6 +11,8 @@ export const useMonths = () => {
   const res = useMemo(() => {
     return months.map((month) => {
       const { days } = generateDays(
+        state.minute,
+        state.hour,
         month.id,
         state.year,
         locale === "fa",
@@ -25,6 +27,7 @@ export const useMonths = () => {
       }
       return month;
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [disabledDates, locale, months, state.year]);
 
   return {

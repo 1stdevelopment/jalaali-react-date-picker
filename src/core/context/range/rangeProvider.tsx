@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { dateTransformer, formatGenerator } from "../../../utils";
 import { RangePickerProps } from "../../interfaces";
-import { Date, RangeDate, RangeValue } from "../../types";
+import { Date, RangeDate, RangeValue } from "../../types/global.types";
 import { RangePropsReducerType } from "../propsReducer";
 import { useRangePropsReducer } from "../usePropsReducer";
 import { useRangeReducer } from "./useRangeReducer";
@@ -45,7 +45,7 @@ interface ContextType extends RangePropsReducerType {
 
 export const RangePickerContext = createContext<ContextType>({
   rangeState: {
-    startDate: { day: 0, month: 0, year: 0 },
+    startDate: { minute: 0, hour: 0, day: 0, month: 0, year: 0 },
     endDate: null,
   },
   cacheRangeDate: undefined,
@@ -62,8 +62,8 @@ export const RangePickerContext = createContext<ContextType>({
   changePlaceholder: () => null,
   changeFrom: () => null,
   changeTo: () => null,
-  from: { day: 0, month: 0, year: 0 },
-  to: { day: 0, month: 0, year: 0 },
+  from: { minute: 0, hour: 0, day: 0, month: 0, year: 0 },
+  to: { minute: 0, hour: 0, day: 0, month: 0, year: 0 },
   offsets: [0, 0],
   setOffsets: () => null,
 });

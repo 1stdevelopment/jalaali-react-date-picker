@@ -7,6 +7,8 @@ const generateDaysCallback = () => {
 
   expect(
     fn({
+      minute: 0,
+      hour: 0,
       currentMonth: 11,
       year: 1401,
       currentMonthWeekDay: 5,
@@ -15,6 +17,8 @@ const generateDaysCallback = () => {
   ).toBe(5);
   expect(
     fn({
+      minute: 0,
+      hour: 0,
       currentMonth: 12,
       year: 1401,
       currentMonthWeekDay: 4,
@@ -23,6 +27,8 @@ const generateDaysCallback = () => {
   ).toBe(4);
   expect(
     fn({
+      minute: 0,
+      hour: 0,
       currentMonth: 1,
       year: 1402,
       currentMonthWeekDay: 1,

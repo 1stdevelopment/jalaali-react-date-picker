@@ -3,6 +3,8 @@ import { DateMetadata, DatePickerProps } from "../core";
 
 export const dayModelGenerator = (
   count: number,
+  minute: number,
+  hour: number,
   month: number,
   year: number,
   isJalaali: boolean,
@@ -21,6 +23,8 @@ export const dayModelGenerator = (
     return {
       id: `${i + 1}`,
       day: i + 1,
+      minute,
+      hour,
       month,
       year,
       isWeekend: isJalaali ? weekday === 6 : weekday === 1,

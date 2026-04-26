@@ -33,11 +33,15 @@ const Days = () => {
     presets,
   } = usePanelContext();
 
-  const days: Date[] = metadataDays.map(({ day, month, year }) => ({
-    day,
-    month,
-    year,
-  }));
+  const days: Date[] = metadataDays.map(
+    ({ minute, hour, day, month, year }) => ({
+      minute,
+      hour,
+      day,
+      month,
+      year,
+    }),
+  );
 
   const canHighlighWeekend =
     highlightWeekend !== undefined ? highlightWeekend : true;
