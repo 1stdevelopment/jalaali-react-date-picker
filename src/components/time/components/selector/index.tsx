@@ -17,11 +17,6 @@ export const Selector = ({
   id,
 }: SelectorProps) => {
   const [open, setOpen] = useState(false);
-  const [pos, setPos] = useState({
-    top: 0,
-    left: 0,
-    width: 40,
-  });
 
   const rootRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -30,11 +25,14 @@ export const Selector = ({
     const rect = rootRef.current?.getBoundingClientRect();
     if (!rect) return;
 
-    setPos({
-      top: rect.bottom + 4,
-      left: rect.left,
-      width: rect.width,
-    });
+    if (dropdownRef.current?.style.top !== undefined)
+      dropdownRef.current.style.top = String(rect.bottom + 4);
+
+    if (dropdownRef.current?.style.left !== undefined)
+      dropdownRef.current.style.left = String(rect.left);
+
+    if (dropdownRef.current?.style.width !== undefined)
+      dropdownRef.current.style.width = String(rect.width);
   };
 
   useLayoutEffect(() => {
@@ -74,18 +72,7 @@ export const Selector = ({
       </button>
 
       {open && (
-        <div
-          dir={dir}
-          id={id}
-          ref={dropdownRef}
-          className="time-dropdown"
-          style={{
-            top: pos.top,
-            left: pos.left,
-            width: pos.width,
-            position: "fixed",
-          }}
-        >
+        <div dir={dir} id={id} ref={dropdownRef} className="time-dropdown">
           {options.map((val) => (
             <button
               key={val}
