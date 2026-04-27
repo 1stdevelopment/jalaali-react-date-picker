@@ -30,9 +30,6 @@ export const Selector = ({
 
     if (dropdownRef.current?.style.left !== undefined)
       dropdownRef.current.style.left = String(rect.left);
-
-    if (dropdownRef.current?.style.width !== undefined)
-      dropdownRef.current.style.width = String(rect.width);
   };
 
   useLayoutEffect(() => {

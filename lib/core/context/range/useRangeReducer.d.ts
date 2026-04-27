@@ -1,5 +1,5 @@
 import { RangePickerProps } from "../../interfaces";
-import { Date, Locale, RangeDate, RangeValue } from "../../types";
+import { Date, Locale, RangeDate, RangeValue } from "../../types/global.types";
 interface RangeDateReducerType {
     formatProp?: string;
     onChangeProp?: RangePickerProps["onChange"];

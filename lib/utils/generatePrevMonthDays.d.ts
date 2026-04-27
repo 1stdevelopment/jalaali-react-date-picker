@@ -1,5 +1,7 @@
 import { DateMetadata, DatePickerProps } from "../core";
-export declare const generatePrevMonthDays: ({ currentMonthWeekDay, currentMonth, year, isJalaali, disabledDates, }: {
+export declare const generatePrevMonthDays: ({ minute, hour, currentMonthWeekDay, currentMonth, year, isJalaali, disabledDates, }: {
+    minute: number;
+    hour: number;
     currentMonthWeekDay: number;
     currentMonth: number;
     year: number;

@@ -1056,11 +1056,15 @@
   background-color: var(--background);
 }
 
-.picker-input-wrapper:not(.picker-input-error):not(.picker-input-disabled):hover {
+.picker-input-wrapper:not(.picker-input-error):not(
+    .picker-input-disabled
+  ):hover {
   border-color: var(--primary);
 }
 
-.range-input-wrapper:not(.picker-input-error):not(.picker-input-disabled):hover {
+.range-input-wrapper:not(.picker-input-error):not(
+    .picker-input-disabled
+  ):hover {
   border-color: var(--primary);
 }
 
@@ -1272,9 +1276,7 @@
 
 .time-dropdown {
   position: fixed;
-  top: calc(100% + 4px);
-  left: 0;
-  width: 100%;
+  width: 40px;
   max-height: 125px;
   overflow-y: auto;
   border: 1px solid var(--border);

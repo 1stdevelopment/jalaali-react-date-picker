@@ -143,8 +143,10 @@ export interface DatePickerProps {
     className?: string;
     /** Callback to close popup */
     close?: () => void;
+    /** Whether to display the time picker */
+    includeTime?: boolean;
 }
-interface PanelProps extends Pick<DatePickerProps, "panelRender" | "footerRender" | "headerRender" | "highlightDays" | "dayLabelRender" | "highlightWeekend" | "style" | "className" | "loading" | "loadingIndicator" | "onModeChange"> {
+interface PanelProps extends Pick<DatePickerProps, "panelRender" | "footerRender" | "headerRender" | "highlightDays" | "dayLabelRender" | "highlightWeekend" | "style" | "className" | "loading" | "loadingIndicator" | "onModeChange" | "includeTime"> {
 }
 export interface PickerProps extends PanelProps {
 }

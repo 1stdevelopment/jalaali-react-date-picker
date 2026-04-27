@@ -1,5 +1,7 @@
 import { DatePickerProps } from "../core";
-export declare const generateNextMonthDays: ({ currentMonthWeekDay, currentMonth, year, isJalaali, disabledDates, }: {
+export declare const generateNextMonthDays: ({ minute, hour, currentMonthWeekDay, currentMonth, year, isJalaali, disabledDates, }: {
+    minute: number;
+    hour: number;
     currentMonthWeekDay: number;
     currentMonth: number;
     year: number;
@@ -13,5 +15,7 @@ export declare const generateNextMonthDays: ({ currentMonthWeekDay, currentMonth
     year: number;
     month: number;
     day: number;
+    hour: number;
+    minute: number;
 }[];
 //# sourceMappingURL=generateNextMonthDays.d.ts.map

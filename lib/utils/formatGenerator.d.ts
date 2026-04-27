@@ -1,2 +1,2 @@
-export declare const formatGenerator: (isJalaali: boolean) => "jYYYY-jMM-jDD" | "YYYY-MM-DD";
+export declare const formatGenerator: (isJalaali: boolean, includeTime?: boolean) => string;
 //# sourceMappingURL=formatGenerator.d.ts.map

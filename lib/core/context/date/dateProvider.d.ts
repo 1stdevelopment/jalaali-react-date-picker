@@ -14,7 +14,9 @@ interface ContextType extends DatePropsReducerType {
     cacheDate?: Date;
     offset: number;
     onClear: () => void;
-    onDateChange: (payload: Date) => void;
+    onDateChange: (payload: Date, closePicker?: boolean) => void;
+    onMinuteChange: (payload: Date) => void;
+    onHourChange: (payload: Date) => void;
     onDaychange: (payload: Date) => void;
     onMonthchange: (payload: Date) => void;
     onYearchange: (payload: Date) => void;

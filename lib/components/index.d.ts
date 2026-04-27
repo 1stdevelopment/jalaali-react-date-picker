@@ -10,4 +10,5 @@ export * from "./portal";
 export * from "./range";
 export * from "./rangeInput";
 export * from "./suffix";
+export * from "./time";
 //# sourceMappingURL=index.d.ts.map

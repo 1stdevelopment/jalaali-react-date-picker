@@ -11,11 +11,14 @@ interface DateReducerType {
     locale: Locale;
     setOffset?: (offset: number) => void;
     close?: () => void;
+    includeTime?: boolean;
 }
-export declare const useDateReducer: ({ formatProp, valueProp, defaultValueProp, onChangeProp, onDayChangeProp, onMonthChangeProp, onYearChangeProp, locale, close, }: DateReducerType) => {
+export declare const useDateReducer: ({ formatProp, includeTime, valueProp, defaultValueProp, onChangeProp, onDayChangeProp, onMonthChangeProp, onYearChangeProp, locale, close, }: DateReducerType) => {
     state: Date;
     cacheDate: Date;
     onDateChange: (payload: Date | null) => void;
+    onMinuteChange: (payload: Date) => void;
+    onHourChange: (payload: Date) => void;
     onDaychange: (payload: Date) => void;
     onMonthchange: (payload: Date) => void;
     onYearchange: (payload: Date) => void;
