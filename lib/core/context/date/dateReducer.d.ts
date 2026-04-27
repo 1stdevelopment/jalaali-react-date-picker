@@ -1,5 +1,7 @@
 import { Date } from "../../types/global.types";
 export declare enum DateActionKind {
+    MINUTE = "MINUTE",
+    HOUR = "HOUR",
     DATE = "DATE",
     DAY = "DAY",
     MONTH = "MONTH",

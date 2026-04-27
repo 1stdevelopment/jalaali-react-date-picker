@@ -1056,11 +1056,15 @@
   background-color: var(--background);
 }
 
-.picker-input-wrapper:not(.picker-input-error):not(.picker-input-disabled):hover {
+.picker-input-wrapper:not(.picker-input-error):not(
+    .picker-input-disabled
+  ):hover {
   border-color: var(--primary);
 }
 
-.range-input-wrapper:not(.picker-input-error):not(.picker-input-disabled):hover {
+.range-input-wrapper:not(.picker-input-error):not(
+    .picker-input-disabled
+  ):hover {
   border-color: var(--primary);
 }
 
