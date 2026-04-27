@@ -1272,9 +1272,7 @@
 
 .time-dropdown {
   position: fixed;
-  top: calc(100% + 4px);
-  left: 0;
-  width: 100%;
+  width: 40px;
   max-height: 125px;
   overflow-y: auto;
   border: 1px solid var(--border);
